@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Explore a virtual robotic arm, move the payload, and see inverse kinematics calculate a pick-and-place motion.">
+<title>Interactive 3D Robotic Arm</title>
+<link rel="stylesheet" href="style.css">
+<script src="arm.js" defer></script>
+</head>
+<body>
+<main>
+  <header>
+    <p class="category">Computer Graphics <span>·</span> Software Engineering</p>
+    <h1>Interactive 3D Robotic Arm</h1>
+    <p class="intro">Move the cube and run a transfer. Inverse kinematics calculates how the arm reaches it.</p>
+  </header>
+  <section class="workspace" aria-label="Robotic arm simulator">
+    <div class="viewport">
+      <canvas id="scene" tabindex="0" aria-label="3D robotic arm. Use the arrow keys to orbit, or drag the scene."></canvas>
+      <div class="caption"><span id="phase" role="status">Manual control</span><span>Drag to orbit · Scroll to zoom</span></div>
+    </div>
+    <aside>
+      <h2>Payload position</h2>
+      <div class="control">
+        <label for="target-angle">Angle</label><output id="angle-value" for="target-angle"></output>
+        <input id="target-angle" type="range" min="-95" max="-28" value="-48">
+      </div>
+      <div class="control">
+        <label for="target-radius">Distance from base</label><output id="radius-value" for="target-radius"></output>
+        <input id="target-radius" type="range" min="1.20" max="2.20" step="0.01" value="1.51">
+      </div>
+      <p id="reach-status" role="status"></p>
+      <div class="actions">
+        <button id="play" type="button">Run IK transfer</button>
+        <button id="reset" type="button">Reset</button>
+      </div>
+      <details id="manual-controls">
+        <summary>Manual joint controls</summary>
+        <div id="controls"></div>
+      </details>
+    </aside>
+  </section>
+  <footer>The gripper stays vertical during pickup, transfer, and release. The simulator checks the configured joint limits.</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<style>
+  .robotic-arm-preview video,
+  .robotic-arm-preview img { display: block; width: 100%; height: auto; }
+  .robotic-arm-preview .still { display: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .robotic-arm-preview video { display: none; }
+    .robotic-arm-preview .still { display: block; }
+  }
+</style>
+
+<figure class="robotic-arm-preview">
+  <video controls muted playsinline preload="none" width="1280" height="720"
+    aria-label="An orange robotic arm picks up a turquoise cube and moves it to a second station."
+    poster="robotic-arm-preview.webp">
+    <source src="robotic-arm-demo.mp4" type="video/mp4">
+  </video>
+  <img class="still" src="robotic-arm-preview.webp" width="1280" height="720"
+    alt="An orange robotic arm grips a turquoise cube between two stations on a dark grid.">
+  <figcaption><a href="index.html">Open interactive demo</a></figcaption>
+</figure>
